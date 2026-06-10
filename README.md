@@ -1,2 +1,2 @@
 # Notes-Backend
-A backend API for Notes Web app
+A backend API for Notes Web app built using ASP.NET Core Webapi
