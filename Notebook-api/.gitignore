@@ -9,7 +9,7 @@
 
 /.vs/**
 *.user
-/Notebook-api/obj/**
-/Notebook-api/bin/**
-/Notebook-api/.vs/**
+/obj/**
+/bin/**
+/.vs/**
 
