@@ -12,6 +12,7 @@ namespace Notebook_api
             builder.Services.AddControllers();
             // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
             builder.Services.AddOpenApi();
+            builder.Services.AddHealthChecks();
 
             var app = builder.Build();
 
@@ -21,12 +22,16 @@ namespace Notebook_api
                 app.MapOpenApi();
             }
 
-            app.UseHttpsRedirection();
+            if (Environment.GetEnvironmentVariable("DOTNET_RUNNING_IN_CONTAINER") != "true")
+            {
+                app.UseHttpsRedirection();
+            }
 
             app.UseAuthorization();
 
 
             app.MapControllers();
+            app.MapHealthChecks("/health");
 
             app.Run();
         }
